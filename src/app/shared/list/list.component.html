@@ -1,0 +1,5 @@
+<div style="display: flex; flex-wrap: wrap; gap: 0.25rem; justify-content: center">
+  @for (item of list(); track item) {
+    <app-item (countChanged)="countUpdate($event)" [item]="item"></app-item>
+  }
+</div>
