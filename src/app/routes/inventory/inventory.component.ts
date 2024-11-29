@@ -53,6 +53,6 @@ export class InventoryComponent {
   }
 
   sendItems() {
-
+    console.log(this.list);
   }
 }
