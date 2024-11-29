@@ -14,11 +14,25 @@ export class ListComponent {
   list = input<any[]>([]);
   updatedData = output<any>();
 
+  private updatedList: any[] = [];
+
   countUpdate(updatedItem: { count: number; id: number }) {
-    const updatedList = this.list().map((item) => item.id === updatedItem.id ? {
-      ...item,
-      count: updatedItem.count
-    } : item);
-    this.updatedData.emit({list: updatedList, hasItems: !!updatedItem.count});
+    if (this.updatedList.length === 0) {
+      this.updatedList = this.list();
+    }
+    let count = 0;
+    this.updatedList = this.updatedList.map((item) => {
+      const isUpdatedItem = item.id === updatedItem.id;
+      if (isUpdatedItem) {
+        count = count + updatedItem.count;
+      } else {
+        count = count + item.count;
+      }
+      return isUpdatedItem ? {
+        ...item,
+        count: updatedItem.count
+      } : item
+    });
+    this.updatedData.emit({hasItems: !!count});
   }
 }

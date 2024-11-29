@@ -1,8 +1,8 @@
 <app-list (updatedData)="updateData($event)" [list]="list"></app-list>
 
 @if (hasItems) {
-  <div (click)="sendItems()"
-       style="position: fixed; bottom: 0; left: 0; text-align: center; background-color: green;  width: 100%;">
+  <div class="button" (click)="sendItems()"
+       style="position: fixed; bottom: 0; left: 0; text-align: center; background-color: black; color: white;  width: 100%;">
     <div style="padding: 1rem 1.5rem; font-size: 24px; font-weight: 600">
       Jo'natish
     </div>

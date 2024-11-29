@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ListComponent} from '../../shared/list/list.component';
 
 @Component({
@@ -43,11 +43,13 @@ export class InventoryComponent {
       count: 0
     }
   ];
+  updatedList = [];
   hasItems = false;
 
   updateData(data: any) {
     this.hasItems = data?.hasItems;
-    // this.list = data.list;
+    // this.hasItems = !!(list.reduce((acc: number, cur: any) => acc + cur.count, 0));
+    // this.updatedList = list;
   }
 
   sendItems() {
